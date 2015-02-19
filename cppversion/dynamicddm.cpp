@@ -48,7 +48,7 @@ List dynamicddm(){
    for (int i = 0; i < numStates; i++){
      states[i] = barrierUp - i*stateStep;
    }
-  //return(states);
+   
   // Initialize probability states (state in the middle zero for the moment)
   NumericVector prStates(numStates);
   int zeroPos = ((numStates-1)/2); // assuming odd number of states this provides the indice of the middle state (-1 in the end to account for vectors-indices starting at 0 in c++)
@@ -65,7 +65,7 @@ List dynamicddm(){
   
   for (int i = 0; i < numStates;i++){
     pCrossBarrierUp[i] = R::pnorm(stateStep*i,mean,sd,0,0);
-    pCrossBarrierDown[i] = R::pnorm((numStates-i-1)*stateStep,mean,sd,0,0);
+    pCrossBarrierDown[i] = R::pnorm((numStates-i-1)*stateStep,-mean,sd,0,0);
   }
   
   // fresh probability states vector
@@ -124,10 +124,12 @@ List dynamicddm(){
     // renormalization  
     sumIn = 0;
     sumCurrent = 0;
+    
     for (int i=0;i < numStates;i++){
       sumIn+=prStates[i];
       sumCurrent+=PrStatesNew[i];
     }
+    
     sumCurrent += tempUpCross + tempDownCross;
     ratioNewOld = sumIn/sumCurrent;
     

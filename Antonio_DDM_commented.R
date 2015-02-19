@@ -42,7 +42,6 @@ DDMAntonio= function(){
   upCrossing = rep(0,timeMax)
   downCrossing = rep(0,timeMax)
   
-  
   for (t in 1:timeMax) {
     #print(t)
     
