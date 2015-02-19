@@ -8,7 +8,7 @@ using namespace Rcpp;
 // For more on using Rcpp click the Help button on the editor toolbar
 
 // [[Rcpp::export]]
-List dynamicddm() {
+List dynamicddm(){
    
    // initialize mean and sd
    double sd = 0.3;

@@ -1,9 +1,13 @@
 # remove old variables
 ################
 rm(list=ls())
+
+
+
+
 DDMAntonio= function(){
   # Initialize mean and sd
-  mean = 0.00
+  mean = 0.03
   sd = 0.3
   
   # how coarse do you want the steps
@@ -89,6 +93,6 @@ sum(x$upCrossing)
 sum(x$downCrossing)
 sum(x$upCrossing) + sum(x$downCrossing)
 plot(1:timeMax,x$upCrossing,type="line",col=1)
-point(1:timeMax,x$downCrossing,type="line",col=2)
+points(1:timeMax,x$downCrossing,type="line",col=2)
 sum((1:timeMax)*x$upCrossing)/sum(x$upCrossing)
 sum((1:timeMax)*x$downCrossing)/sum(x$downCrossing)
